@@ -45,7 +45,7 @@
 <body>
   <h2>Hot Sauce Table</h2>
 
-  <table class="table">
+  <table id="hotTable" class="table">
   <thead>
     <tr>
       <th scope="col">Hot Sauce</th>
@@ -110,5 +110,12 @@
   </div>
 <button type="submit" class="btn btn-primary">Add Row</button>
 </form>
+
+<script src="js/tablesort.min.js"></script>
+
+<script>
+new Tablesort(document.getElementById('hotTable'));
+</script>
+
   </body>
 </html>
