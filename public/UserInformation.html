@@ -21,15 +21,14 @@
 
 
     <h1>User Information</h1>
-     <img src="img/chad.jpg" alt="Chad Photo" width="200px">
+     <img v-bind:src="profile.picture.large" alt="Chad Photo" width="200px">
     <ul>
-      <li>First Name: {{ description.firstName }} </li>
-      <li>Last Name: {{description.lastName}} </li>
-      <li>City: {{description.originCity}} </li>
-      <li>Country: {{description.originCountry}}</li>
-      <li>Birthdate:{{description.birthdate}}</li>
-      <li>Age: {{description.age}}</li>
-      <li><a href="yahoo.com">ChadChadwick@yahoo.com</a></li>
+      <li>{{profile.name.first}} </li>
+      <li>{{profile.name.last}} </li>
+      <li>{{profile.location.city}}</li>
+      <li>{{profile.dob.date}}</li>
+      <li>{{computeAge}}</li>
+      <li>{{profile.email}}</li>
 
     </ul>
 
@@ -38,8 +37,8 @@
     </div>
 
     <div class="img-with-text">
-        <img src="Chad" />
-        <p> Image Source: https://genius.com/discussions/13442-Off-topic-chat</p>
+        <!-- <img src="Chad" /> -->
+
     </div>
 
     </main>

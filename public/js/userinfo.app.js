@@ -1,17 +1,27 @@
 var userinfoApp = new Vue({
   el: '#userinfo',
   data: {
-    description:{
-    firstName:'',
-    lastName:'',
-    originCity:'',
-    originCountry:'',
-    birthdate:'',
-    age:'',
-    email:'',
-    imageSource:''
-  }
+    profile: {
+      "name": {
+        "first": "",
+        "last": "",
+        },
 
+        "location": {
+          "city": "",
+        },
+
+        "dob": {
+        "date": "",
+        "age": ""
+      },
+
+      "email":'',
+      "picture": {
+        "large":''
+      }
+
+}
 },
 computed:{
     days_left: function(){
@@ -26,26 +36,24 @@ computed:{
       return moment(d).format('l')
     },
 
-    fetchUser: function () {
-     fetch('https://randomuser.me/api/')
-     .then( (response) => response.json())
-     .then( json =>{
-       userinfoApp.description.firstName = json.results[0].firstName;
-       userinfoApp.description.lastName = json.results[0].lastName;
-       userinfoApp.description.originCity = json.results[0].originCity;
-       userinfoApp.description.originCountry = json.results[0].originCountry;
-       userinfoApp.description.birthdate = json.results[0].birthdate;
-       userinfoApp.description.age = json.results[0].age;
-       userinfoApp.description.email = json.results[0].email;
-       userinfoApp.description.imageSource = json.results[0].imageSource;
-     }
-     .catch(function(err){
-       console.log('task fetch error:');
-       console.log(err);
-     })
-   }
- },
- created() {
-   this.fetchUser()
- }
-})
+    fetchRandomUser: function(){
+      fetch('https://randomuser.me/api/')
+      .then( function(response) {return response.json()})
+
+      .then(json => {userinfoApp.profile=json.results[0]})
+
+      .catch(function(err){
+        console.log('FETCH ERROR');
+        console.log(err);
+      }) ;
+    }
+  },
+  created() {
+    this.fetchRandomUser();
+  },
+  computed:{
+    computeAge: function(){
+      return moment().diff(this.profile.dob.date,'years');
+    }
+  }
+});
