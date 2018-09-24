@@ -9,32 +9,47 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="css/individualProject.css" rel="stylesheet" type="text/css">
 
-    <title>Home Page</title>
+    <title>Hello, world!</title>
   </head>
   <nav class="nav">
-    <a class="nav-link active" href="userinformation.html">User Information</a>
+    <a class="nav-link active" href="index.html">Home</a>
     <a class="nav-link" href="hotsaucetable.html">Hot Sauce Table</a>
   </nav>
 
   <body>
-    <h1>Homework #2</h1>
-    <h2>Nick Magers</h2>
-    <h3>Red Cohort</h3>
-    <h4> This is a test</h4>
-    <h5>This is another test</h5>
+    <main id="userinfo">
 
-    <a target="_blank" href="kelleylogo">
-    <img src="img/kelleylogo.jpg" alt="kelley logo" width="200">
-  </a>
 
-  <div class="img-with-text">
-      <img src="kelleylogo" />
-      <p> Source: https://broadcast.iu.edu/events/kelley-2018-mba-graduate-recognition.html</p>
-  </div>
+    <h1>User Information</h1>
+     <img v-bind:src="profile.picture.large" alt="Chad Photo" width="200px">
+    <ul>
+      <li>{{profile.name.first}} </li>
+      <li>{{profile.name.last}} </li>
+      <li>{{profile.location.city}}</li>
+      <li>{{profile.dob.date}}</li>
+      <li>{{computeAge}}</li>
+      <li>{{profile.email}}</li>
 
+    </ul>
+
+    <div>
+      <button @click="fetchRandomUser" id="fetch-button">Next User!</button>
+    </div>
+
+    <div class="img-with-text">
+        <!-- <img src="Chad" /> -->
+
+    </div>
+
+    </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/userinfo.app.js"></script>
 
 
 
 
   </body>
+
+
 </html>
