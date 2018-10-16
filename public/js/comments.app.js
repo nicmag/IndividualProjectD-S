@@ -17,16 +17,14 @@ methods: {
         headers: {
             "Content-Type": "application/json; charset=utf-8"
         },
-        body: JSON.stringify(this.newCommentForm.comment) // body data type must match "Content-Type" header
+        body: JSON.stringify(
+      {comment:this.newCommentForm.comment}) // body data type must match "Content-Type" header
       })
-      .then( response => response.json() )
+      .then( response => response.json())
       .then( json => {this.comment.push(json)})
       .catch( err => {
         console.error('COMMENTS POST ERROR:');
-        console.error(err);
-      })
-      // this.commentForm = this.getEmptyCommentForm();
-  },
+
  //handle
 //   getEmptyCommentForm() {
 //   return {comment =
@@ -40,7 +38,7 @@ getAllComments: function() {
   fetch('api/comment.php')
   .then(response => response.json())
   .then(json => {commentsApp.comment = json;} )
-  .catch( err=>{
+  .catch( err=> {
     console.error('COMMENTS FETCH ERROR:');
     console.error(err);
   })
