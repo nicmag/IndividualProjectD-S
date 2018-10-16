@@ -38,7 +38,7 @@
 </table>
 
 
-<form id="newCommentForm">
+<form id="newCommentForm" @submit.prevent="handleCommentForm">
 
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Add New Comment</label>
