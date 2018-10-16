@@ -7,28 +7,28 @@ var commentsApp = new Vue({
 },
 
 methods: {
-  // handleCommentForm(e){
+  handleCommentForm(e){
   //
   //   const s = JSON.stringify(this.workForm);
   //     console.log(s);
   //
-  //   fetch('api/comment.php', {
-  //       method: "POST", // *GET, POST, PUT, DELETE, etc.
-  //       headers: {
-  //           "Content-Type": "application/json; charset=utf-8"
-  //       },
-  //       body: s // body data type must match "Content-Type" header
-  //     })
-  //     .then( response => response.json() )
-  //     .then( json => {this.comment.push(json)})
-  //     .catch( err => {
-  //       console.error('WORK POST ERROR:');
-  //       console.error(err);
-  //     })
-  //     this.workForm = this.getEmptyWorkForm();
-  // },
+    fetch('api/comment.php', {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        headers: {
+            "Content-Type": "application/json; charset=utf-8"
+        },
+        body: JSON.stringify(this.newCommentForm.comment) // body data type must match "Content-Type" header
+      })
+      .then( response => response.json() )
+      .then( json => {this.comment.push(json)})
+      .catch( err => {
+        console.error('COMMENTS POST ERROR:');
+        console.error(err);
+      })
+      // this.commentForm = this.getEmptyCommentForm();
+  },
  //handle
-//   getEmptyWorkForm() {
+//   getEmptyCommentForm() {
 //   return {comment =
 //     team_id: null,
 //     task_id: this.task.id,
@@ -53,6 +53,8 @@ getAllComments: function() {
     // const taskId = url.searchParams.get('taskId');
     // console.log('Task: '+ taskId);
     // this.task.id = taskId;
+
+
   }
 
 
