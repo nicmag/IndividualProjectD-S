@@ -44,11 +44,16 @@ getAllComments: function() {
     console.error('COMMENTS FETCH ERROR:');
     console.error(err);
   })
+},
+
+getEmptyCommentForm() {
+  return null;
 }
 
 },
   created () {
     this.getAllComments();
+    this.newCommentForm = this.getEmptyCommentForm();
     // const url = new URL(window.location.href);
     // const taskId = url.searchParams.get('taskId');
     // console.log('Task: '+ taskId);
