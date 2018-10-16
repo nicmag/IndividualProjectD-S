@@ -24,6 +24,9 @@ methods: {
       .then( json => {this.comment.push(json)})
       .catch( err => {
         console.error('COMMENTS POST ERROR:');
+        console.error(err);
+      })
+    },
 
  //handle
 //   getEmptyCommentForm() {
