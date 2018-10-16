@@ -47,7 +47,9 @@ getAllComments: function() {
 },
 
 getEmptyCommentForm() {
-  return null;
+  return {
+    comment: null
+  }
 }
 
 },
